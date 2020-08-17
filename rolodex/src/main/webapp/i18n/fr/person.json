@@ -1,0 +1,32 @@
+{
+  "rolodexApp": {
+    "person": {
+      "home": {
+        "title": "People",
+        "createLabel": "Créer un nouveau Person",
+        "createOrEditLabel": "Créer ou éditer un Person",
+        "notFound": "Aucun Person trouvé"
+      },
+      "created": "Un nouveau Person a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Person avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Person avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Person {{ id }} ?"
+      },
+      "detail": {
+        "title": "Person"
+      },
+      "prefix": "Prefix",
+      "vorname": "Vorname",
+      "nachname": "Nachname",
+      "suffix": "Suffix",
+      "geburtstag": "Geburtstag",
+      "unternehmen": "Unternehmen",
+      "kontaktinfo": "Kontaktinfo",
+      "adresse": "Adresse",
+      "berater": "Berater",
+      "kandidat": "Kandidat",
+      "kontakt": "Kontakt"
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "name": "Person",
+  "fields": [
+    {
+      "fieldName": "prefix",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "20"
+    },
+    {
+      "fieldName": "vorname",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "30"
+    },
+    {
+      "fieldName": "nachname",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "30"
+    },
+    {
+      "fieldName": "suffix",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "20"
+    },
+    {
+      "fieldName": "geburtstag",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "unternehmen",
+      "otherEntityRelationshipName": "person",
+      "relationshipName": "unternehmen",
+      "otherEntityField": "id",
+      "ownerSide": true,
+      "useJPADerivedIdentifier": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "kontaktinfo",
+      "otherEntityRelationshipName": "person",
+      "relationshipName": "kontaktinfo"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "adresse",
+      "otherEntityRelationshipName": "person",
+      "relationshipName": "adresse"
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "berater",
+      "otherEntityRelationshipName": "person",
+      "relationshipName": "berater",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "kandidat",
+      "otherEntityRelationshipName": "person",
+      "relationshipName": "kandidat",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "kontakt",
+      "otherEntityRelationshipName": "person",
+      "relationshipName": "kontakt",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20200817092412",
+  "entityTableName": "person",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["profiler", "candidates", "rolodex"]
+}
