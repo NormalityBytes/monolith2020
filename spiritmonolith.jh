@@ -1,0 +1,82 @@
+application {
+  config {
+    baseName profiler
+  }
+  entities Person
+  dto * with mapstruct
+}
+
+application {
+  config {
+    baseName candidates
+  }
+  entities Person
+  paginate * with pagination
+}
+
+application {
+  config {
+    baseName rolodex
+  }
+  entities Person
+  service * with serviceClass
+}
+
+entity Person {
+	prefix String maxlength(20)
+    vorname String required maxlength(30)
+    nachname String required maxlength(30)
+    suffix String maxlength(20)
+    geburtstag Instant
+}
+
+enum Kontaktmedium {
+	Telefon, Email, Fax
+}
+
+entity Kontaktinfo {
+	medium Kontaktmedium required
+	privat Boolean
+    adresse String required    
+}
+
+entity Adresse {
+	bezeichnung String required
+    strasse String
+    plz String 
+}
+
+entity Unternehmen {
+	name String required
+}
+
+entity Berater {
+	
+}
+
+entity Kandidat {
+
+}
+
+entity Kontakt {}
+
+relationship OneToOne {
+	Berater to Person with jpaDerivedIdentifier
+    Kandidat to Person with jpaDerivedIdentifier
+    Kontakt to Person with jpaDerivedIdentifier
+    Person to Unternehmen with jpaDerivedIdentifier
+}
+
+relationship OneToMany {
+	Person to Kontaktinfo
+    Person to Adresse
+    Unternehmen to Adresse
+    Unternehmen to Kontaktinfo
+} 
+
+relationship ManyToMany {
+	Berater{werdegang} to Unternehmen
+    Kandidat{werdegang} to Unternehmen
+}
+
+paginate * with infinite-scroll
